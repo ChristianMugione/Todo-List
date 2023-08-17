@@ -13,6 +13,10 @@ body {
   color: aquamarine;
 }
 
+.title {
+  margin: 5vh;
+}
+
 .container {
   width: 100vw;
   display: flex;
@@ -44,6 +48,40 @@ body {
 
 #remove-all {
   padding: 2px 5px;
+  margin-top: 8px;
+  background-color: #ffffff50;
+  border: 1px solid gray;
+  padding: 8px 12px;
+  font-size: 0.8em;
+  box-shadow: 0 2px 5px gray;
+  color: white;
+
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+#new-task-btn {
+  font-size: 22px;
+  width: 30px;
+  height: 30px;
+
+  cursor: pointer;
+
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 .hidden {
