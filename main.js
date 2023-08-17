@@ -2,6 +2,7 @@ const form = document.getElementById("new-task-form");
 const taskForm = document.getElementById("new-task");
 const todoListUl = document.getElementById("todo-list");
 const deleteDetect = document.querySelectorAll(".task-trash");
+const deleteAllBtn = document.getElementById("remove-all");
 
 //Declaro array de objetos
 let tasks;
@@ -15,6 +16,11 @@ const readTasks = () => {
   }
 };
 
+//saveToLocalStorage
+const saveToLocalStorage = () => {
+  localStorage.setItem("tasksTodoList", JSON.stringify(tasks));
+};
+
 const writeTasks = () => {
   let innerUl = "";
   tasks.forEach((task) => {
@@ -26,7 +32,14 @@ const writeTasks = () => {
         </li>`;
   });
   todoListUl.innerHTML = innerUl;
-  localStorage.setItem("tasksTodoList", JSON.stringify(tasks));
+
+  saveToLocalStorage();
+
+  if (!tasks.length) {
+    deleteAllBtn.classList.add("hidden");
+  } else {
+    deleteAllBtn.classList.remove("hidden");
+  }
 };
 
 function addTask(e) {
@@ -34,7 +47,7 @@ function addTask(e) {
   e.preventDefault();
   const task = { id: Date.now(), task: taskForm.value };
   tasks.push(task);
-  taskForm.innerText = "";
+  form.reset();
 
   //Guardo en localStorage
   writeTasks();
@@ -53,6 +66,12 @@ const detectTask = (e) => {
   deleteTask(idToDelete);
 };
 
+//deleteAll
+const deleteAll = () => {
+  tasks = [];
+  writeTasks();
+};
+
 function init() {
   //Si existe lista de tareas en localStorage, leerla y meterla en tasks
   readTasks();
@@ -61,6 +80,7 @@ function init() {
   //Capturar formulario
   form.addEventListener("submit", addTask);
   todoListUl.addEventListener("click", detectTask);
+  deleteAllBtn.addEventListener("click", deleteAll);
 }
 
 init();
