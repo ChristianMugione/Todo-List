@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:root {
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+}
+
+.container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+}
+
+#todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff50;
+  width: 500px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 5px gray;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+#remove-all {
+  padding: 2px 5px;
+}
